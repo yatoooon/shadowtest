@@ -1,0 +1,38 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdk 30
+
+    defaultConfig {
+        applicationId "com.common.loader"
+        minSdk 21
+        targetSdk 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation "com.tencent.shadow.dynamic:loader-impl:$shadow_version"
+
+    compileOnly "com.tencent.shadow.core:activity-container:$shadow_version"
+    compileOnly "com.tencent.shadow.core:common:$shadow_version"
+    //下面这行依赖是为了防止在proguard的时候找不到LoaderFactory接口
+    compileOnly "com.tencent.shadow.dynamic:host:$shadow_version"
+}

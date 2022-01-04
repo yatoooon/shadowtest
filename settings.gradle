@@ -1,0 +1,15 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        jcenter() // Warning: this repository is going to shut down soon
+        mavenLocal()
+    }
+}
+rootProject.name = "shadowtest"
+include ':host'
+include ':pluginmanager'
+include ':plugin:runtime'
+include ':plugin:loader'
+include ':plugin:app'
